@@ -1,0 +1,10 @@
+<div id="angular-autocomplete">
+    <input class="input" id="angular-typehead-search-box" ng-model="input" placeholder="Type here" />
+    <input class="input" id="angular-typehead-autocomplete-term" type="text" ng-model="first_term" readonly="readonly" />
+    <input id="pre-term" type="text" class="input" ng-model="pre_term" />
+    <ul id="angular-typehead-results">
+        <li class="results" ng-repeat="term in filteredTerms = (data | filter:input | sort:['toString',input,strict] | limitTo : limit)">
+            <p ng-click="set_term(term)" ng-bind-html="term | highlight:input"></p>
+        </li>
+    </ul>
+</div>
